@@ -37,8 +37,8 @@ function App() {
     setTeamMembers({name: '', email: '', role: ''})
 
     // Using handleSubmit callback function to update an array with new team members.
-    console.log('new team member', teamMembers);
-    console.log('team array', teamArray);
+    // console.log('new team member', teamMembers);
+    // console.log('team array', teamArray);
   }
 
   // Turns out that I need to put the array update useState function at the end of the list
@@ -60,6 +60,18 @@ function App() {
         handleChange={handleChange} 
         saveArray={saveArray}
       />
+
+      {/* creating cards for individual team members. Will refactor later.*/}
+      <div className='team-container'>
+      {teamArray.map(member => (
+            <div className='member-container'>
+              {console.log(member.name)}
+              <h3>Name: {member.name}</h3>
+              <h4>Role: {member.role}</h4>
+              <p>Email: {member.email}</p>
+            </div>
+      ))}
+      </div>
     </div>
   );
 }
