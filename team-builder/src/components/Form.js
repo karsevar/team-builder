@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Form() {
+function Form({teamMembers, handleChange, handleSubmit}) {
     return (
         <div className='form-container'>
             <form onSubmit={event => handleSubmit(event)} />
