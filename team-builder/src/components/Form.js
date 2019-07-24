@@ -1,0 +1,38 @@
+import React from 'react';
+
+function Form() {
+    return (
+        <div className='form-container'>
+            <form onSubmit={event => handleSubmit(event)} />
+            <label>
+                Name: 
+                <input 
+                    type="text"
+                    name="name"
+                    value={teamMembers.name}
+                    onChange={event => handleChange(event)}
+                />
+            </label>
+            <label>
+                Email:
+                <input
+                    type="text"
+                    name="email"
+                    value={teamMembers.email} 
+                    onChange={event => handleChange(event)}
+                />
+            </label>
+            <label>
+                Role:
+                <input
+                    type="text"
+                    name="role"
+                    value={teamMembers.role} 
+                    onChange={event => handleChange(event)}
+                />
+            </label>
+        </div>
+    );
+}
+
+export default Form;
