@@ -32,7 +32,7 @@ function App() {
   // Extra state clickHandler for team member editing functionality:
   const handleMemberToEdit = (member) => {
     setMemberToEdit({...member})
-    console.log('In memberToEdit Hook', memberToEdit);
+    // console.log('In memberToEdit Hook', memberToEdit);
   }
 
   // onChange handler functions 
@@ -65,10 +65,12 @@ function App() {
       <h1>Add Team Members: </h1>
       <Form 
         teamArray={teamArray}
-        teamMembers={teamMembers} 
+        teamMembers={teamMembers}
+        setTeamMembers={setTeamMembers} 
         handleSubmit={handleSubmit} 
         handleChange={handleChange} 
         saveArray={saveArray}
+        memberToEdit={memberToEdit}
       />
 
       {/* creating cards for individual team members. Will refactor later.*/}

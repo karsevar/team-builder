@@ -1,6 +1,13 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
-function Form({teamMembers, handleChange, handleSubmit, saveArray}) {
+function Form({teamMembers, handleChange, handleSubmit, saveArray, memberToEdit, setTeamMembers}) {
+    console.log(memberToEdit);
+
+    useEffect(() => { 
+        setTeamMembers({...memberToEdit})
+    }, [memberToEdit]);
+    
+
     return (
         <div className='form-container'>
             <form onSubmit={event => handleSubmit(event)}>
