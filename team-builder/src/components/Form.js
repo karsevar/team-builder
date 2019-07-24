@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Form({teamMembers, handleChange, handleSubmit}) {
+function Form({teamMembers, handleChange, handleSubmit, saveArray}) {
     return (
         <div className='form-container'>
             <form onSubmit={event => handleSubmit(event)}>
@@ -31,7 +31,7 @@ function Form({teamMembers, handleChange, handleSubmit}) {
                         onChange={event => handleChange(event)}
                     />
                 </label>
-                <button>Submit New Member!</button>
+                <button onClick={saveArray}>Submit New Member!</button>
             </form>
         </div>
     );
