@@ -44,10 +44,12 @@ function App() {
   // Turns out that I need to put the array update useState function at the end of the list
   // Placed the following callback on the button tag as a onClick.
   function saveArray() {
-    setTeamArray([
-      ...teamArray,
-      teamMembers
-    ])
+    if (teamMembers.name !== '') {
+      setTeamArray([
+        ...teamArray,
+        teamMembers
+      ])
+    }
   }
 
   return (
@@ -63,12 +65,12 @@ function App() {
 
       {/* creating cards for individual team members. Will refactor later.*/}
       <div className='team-container'>
-      {teamArray.map(member => (
-            <div className='member-container'>
-              {console.log(member.name)}
+      {teamArray.map((member, index) => (
+            <div className='member-container' key={index}>
               <h3>Name: {member.name}</h3>
               <h4>Role: {member.role}</h4>
               <p>Email: {member.email}</p>
+              <button>Edit User!</button>
             </div>
       ))}
       </div>
