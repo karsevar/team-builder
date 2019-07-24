@@ -21,11 +21,19 @@ function App() {
   ]
   */
 
-
   const [teamMembers, setTeamMembers] = useState({name: '', email: '', role: ''});
 
   // teamArray idea:
   const [teamArray, setTeamArray] = useState([]);
+
+  // Extra state for team member editing functionality:
+  const [memberToEdit, setMemberToEdit] = useState({});
+
+  // Extra state clickHandler for team member editing functionality:
+  const handleMemberToEdit = (member) => {
+    setMemberToEdit({...member})
+    console.log('In memberToEdit Hook', memberToEdit);
+  }
 
   // onChange handler functions 
   const handleChange = event => {
@@ -65,14 +73,27 @@ function App() {
 
       {/* creating cards for individual team members. Will refactor later.*/}
       <div className='team-container'>
-      {teamArray.map((member, index) => (
+      {/* {
+      useEffect(() => {
+        teamArray.map((member, index) => (
             <div className='member-container' key={index}>
               <h3>Name: {member.name}</h3>
               <h4>Role: {member.role}</h4>
               <p>Email: {member.email}</p>
-              <button>Edit User!</button>
+              <button onClick={handleMemberToEdit({member})}>Edit User!</button>
             </div>
-      ))}
+        ))}, [])
+    } */}
+      {
+        teamArray.map((member, index) => (
+          <div className='member-container' key={index}>
+            <h3>Name: {member.name}</h3>
+            <h4>Role: {member.role}</h4>
+            <p>Email: {member.email}</p>
+            <button onClick={() => handleMemberToEdit(member)}>Edit User!</button>
+          </div>
+      ))
+      }
       </div>
     </div>
   );
