@@ -42,13 +42,17 @@ function App() {
 
   const handleSubmit = event => {
     event.preventDefault();
+    if (memberToEdit.length === undefined) {
+      console.log(memberToEdit.length === undefined);
+      saveArray();
+    } 
     setTeamMembers({name: '', email: '', role: ''})
 
-    // Using handleSubmit callback function to update an array with new team members.
-    // console.log('new team member', teamMembers);
-    // console.log('team array', teamArray);
   }
 
+  // Step 4 - editMember function:
+
+  
   // Turns out that I need to put the array update useState function at the end of the list
   // Placed the following callback on the button tag as a onClick.
   function saveArray() {
@@ -75,17 +79,6 @@ function App() {
 
       {/* creating cards for individual team members. Will refactor later.*/}
       <div className='team-container'>
-      {/* {
-      useEffect(() => {
-        teamArray.map((member, index) => (
-            <div className='member-container' key={index}>
-              <h3>Name: {member.name}</h3>
-              <h4>Role: {member.role}</h4>
-              <p>Email: {member.email}</p>
-              <button onClick={handleMemberToEdit({member})}>Edit User!</button>
-            </div>
-        ))}, [])
-    } */}
       {
         teamArray.map((member, index) => (
           <div className='member-container' key={index}>

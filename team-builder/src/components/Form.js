@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 
-function Form({teamMembers, handleChange, handleSubmit, saveArray, memberToEdit, setTeamMembers}) {
-    console.log(memberToEdit);
-
+function Form({teamMembers, handleChange, handleSubmit, memberToEdit, setTeamMembers}) {
+    // console.log(memberToEdit);
     useEffect(() => { 
+        console.log('in useEffect', memberToEdit);
         setTeamMembers({...memberToEdit})
     }, [memberToEdit]);
     
@@ -38,7 +38,7 @@ function Form({teamMembers, handleChange, handleSubmit, saveArray, memberToEdit,
                         onChange={event => handleChange(event)}
                     />
                 </label>
-                <button onClick={saveArray}>Submit New Member!</button>
+                <button>Submit New Member!</button>
             </form>
         </div>
     );
