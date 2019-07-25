@@ -42,15 +42,17 @@ function App() {
 
   const handleSubmit = event => {
     event.preventDefault();
-    if (memberToEdit.length === undefined) {
-      console.log(memberToEdit.length === undefined);
-      saveArray();
-    } 
+    // saveArray(); 
+    editMember();
     setTeamMembers({name: '', email: '', role: ''})
 
   }
 
   // Step 4 - editMember function:
+  // A little work around for the step 4 section.
+  function editMember() {
+    setTeamArray([...teamArray.filter(member => member.name !== teamMembers.name), teamMembers])
+  }
 
   
   // Turns out that I need to put the array update useState function at the end of the list
@@ -75,6 +77,7 @@ function App() {
         handleChange={handleChange} 
         saveArray={saveArray}
         memberToEdit={memberToEdit}
+        saveArray={saveArray}
       />
 
       {/* creating cards for individual team members. Will refactor later.*/}
